@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+ 
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>
+</head>
+<body>
+    <div class="container container-fluid" style="background-color: rgb(218, 145, 29);">
+        <!-- Content here -->
+        <div class="jumbotron" style="background-color: rgb(12, 12, 11);color:darkgrey">
+                <center><h1>Polygon Smart Contract Deployed on  Matic   Testnet</h1></center>    
+              
+        </div>
+        <div class="row">
+           
+            <div class="col-sm" >
+                <button class="enableEthereumButton btn-primary">Login with Metamask</button>
+            </div>
+            <div class="col-sm" style="color:rgb(248, 255, 255);background-color: firebrick;">
+               <h2>Account: <span class="showAccount"></span> </h2>
+            </div>
+            <div class="col-sm" style="background-color: rgb(218, 166, 231);">
+                <h2>
+                    <img width = "40px" src = "data:image/png;base64,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"/>
+                    
+                    Balance: <span class="accBalance"></span></h2>
+            </div>
+        </div>
+    </div>
+      
+        
+       
+        <div class="container" style="background-color: rgb(218, 145, 29);;">
+            <center>
+            <div class="jumbotron" style="background-color: rgb(218, 192, 192);">
+                <button class="getNameButton btn-success">get Data from Blockchain</button>
+                <h3><span class="getNameSpan"></span></h3>
+                <input id="inp" placeholder = "input_data" type="text"><button class = "setNameButton btn-danger">setData</button>
+            </div>
+        </center>
+            <div class="jumbotron" style="background-color: rgb(26, 0, 16);color: blanchedalmond;">
+                <h3>Link for faucet</h3><h4> https://faucet.polygon.technology/</h4><br><br><br><br>
+                <h3>Matic Network Data</h3><h4><p>
+                    Network name-Mumbai Matic Testnet <br>
+                    New RPC url-https://rpc-mumbai.maticvigil.com <br>
+                    Chain ID - 80001 <br>
+                    Currency Symbol - MATICMUM <br>
+                    Block Explorer URL - https://mumbai.polygonscan.com/ <br>
+
+                </p></h4><br>
+            </div>
+            
+        </div>
+        
+        
+        <br><br>
+
+       <br>
+        
+       
+        
+  
+    
+    
+</body>
+<script>
+    //connect to the rpc
+//let web3 = new Web3("http://127.0.0.1:7545");
+//let web3= new Web3("https://rpc-mumbai.matic.today");https://rpc-mumbai.maticvigil.com
+let web3= new Web3("https://rpc-mumbai.maticvigil.com");
+    //get the abi
+let abi = [
+	{
+		"inputs": [],
+		"name": "getName",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			}
+		],
+		"name": "setName",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
+//let fromAddress = "0xB970c1f108b2407951E5f214A7b8B821F0e5FBcE";
+//get the smart contract address
+let c_add = "0x6e4e113cbc4e1dd2ce69a62a7bbbf2d8e4b7e048";//"0x1215d4ed883E7FB9FB2F8B64d334668110321aD4"; //contract account
+let my_account ;//= "0x59d9cf43D2e0cd73082A5fC81318e84263E9B081";
+
+//login 
+const ethereumButton = document.querySelector('.enableEthereumButton');
+//etherium login and show balance
+const showAccount = document.querySelector('.showAccount');
+const accBalance  = document.querySelector('.accBalance');
+
+//login by default
+getAccount();
+ethereumButton.addEventListener('click', () => {
+  getAccount();
+});
+
+async function getAccount() {
+  accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+  my_account = accounts[0];
+  showAccount.innerHTML = accounts[0];
+  //show ballance of the account
+  web3.eth.getBalance(accounts[0],(e,b)=>{
+        b=web3.utils.fromWei(b,"ether");
+        accBalance.innerHTML = b;
+    });
+    
+}
+
+//connect with the smartcontract
+var contract = new web3.eth.Contract(abi,c_add,{gasPrice: '12345678', from:my_account});
+    const getNameButton = document.querySelector(".getNameButton");
+    const getNameSpan = document.querySelector(".getNameSpan");
+    getNameButton.addEventListener("click",()=>{
+        getName();
+    })
+    //create a sync function to communicate with the smart contract
+    async function getName() {
+        console.log("getname");
+        //contract.methods.setName("abhijit mund").send();
+        const name =  await contract.methods.getName().call(); // get name method is called
+        //const n = await contract.methods.name().call();// name variable is called
+        console.log("data from getName method:",name);
+        getNameSpan.innerHTML = name;
+    
+    }
+
+    //create a async function to set name
+const setNameButton = document.querySelector(".setNameButton");
+const inp = document.getElementById("inp");
+
+let ethers = .01;
+var setName = function(){
+    let input_data = "0xc47f0027"+web3.eth.abi.encodeParameter('string', inp.value).toString().split("0x")[1];
+    ethereum
+    .request({
+      method: 'eth_sendTransaction',
+      params: [
+        {
+          from: accounts[0],
+          to: c_add,
+          //value: web3.utils.numberToHex(web3.utils.toWei(ethers.toString(), 'ether')),
+          gasPrice: web3.utils.numberToHex(10000000000),
+          gasLimit: web3.utils.numberToHex(21000000000),
+          data:input_data,
+          //gasPrice: web3.utils.numberToHex(1000),
+          //gas: web3.utils.numberToHex(410000000),
+        },
+      ],
+    })
+    .then((txHash) => {
+        //update escrow balance
+        console.log(txHash);
+        setTimeout(() => {
+            web3.eth.getBalance(accounts[0],(e,b)=>{
+            b=web3.utils.fromWei(b,"ether");
+            accBalance.innerHTML = b;
+            });
+
+            getName();
+        }, 5000);
+        
+    })
+    .catch((error) => console.error);
+}
+inp.addEventListener("keypress", (event)=> {
+    if (event.keyCode === 13) { // key code of the keybord key
+      event.preventDefault();
+	 // your code to Run
+     setName();
+    }
+  });
+setNameButton.addEventListener("click",()=>{
+   setName();
+});
+
+
+</script>
+</html>
